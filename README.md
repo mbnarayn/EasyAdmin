@@ -29,4 +29,28 @@
 
 `echo %logonserver%`
 
-**Identify Which Domain Controller Authenticated You**
+**Open the Local Machine Certificate Store**
+
+`certlm.msc`
+
+**Open the Local User Certificate Store**
+
+`certmgr.msc`
+
+**Open Local Users and Computers**
+
+`lusrmgr.msc`
+
+**Open Applications with Elevated Priviliges using Run As Admin Mode**
+
+`Ctrl + Shift + Enter`
+
+**Join Local Computer to a Domain**
+
+`Add-Computer -DomainName domainname.local`
+
+**Join Local Computer to a Domain and Specify the OU on which the computer account should be placed**
+
+`Add-Computer -DomainName example.ac.uk -OUPath "OU=Servers,OU=Azure,OU=Prod,DC=EXAMPLE,DC=AC,DC=UK"`
+
+
