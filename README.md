@@ -53,4 +53,23 @@
 
 `Add-Computer -DomainName example.ac.uk -OUPath "OU=Servers,OU=Azure,OU=Prod,DC=EXAMPLE,DC=AC,DC=UK"`
 
+**Disable outbound replication from a particular DC**
+
+`repadmin /options DOMAINCONTROLLERNAME +DISABLE_OUTBOUND_REPL`
+
+**Enable outbound replication from a particular DC**
+
+`repadmin /options DOMAINCONTROLLERNAME -DISABLE_OUTBOUND_REPL`
+
+**Disable inbound replication from a particular DC**
+
+`repadmin /options DOMAINCONTROLLERNAME +DISABLE_INBOUND_REPL`
+
+**Enable inbound replication from a particular DC**
+
+`repadmin /options DOMAINCONTROLLERNAME +DISABLE_INBOUND_REPL`
+
+**How to check if replication is enabled or disabled? **
+
+When replication is disabled, warning events 1115 (for disabled outbound replication) or 1113 (for disabled inbound replication) from source NTDS General will be logged in the Directory Service event log during system startup. As far as I am aware, no events are regularly logged during normal operation to indicate that replication is disabled. When replication is re-enabled, informational events 1116 (for outbound replication) and 1114 (for inbound replication) are logged.
 
