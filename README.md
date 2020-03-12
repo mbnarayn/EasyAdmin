@@ -3,6 +3,10 @@
 
 `dism /online /Enable-Feature /FeatureName:TelnetClient`
 
+**Change Network Connection Profile to Private**
+
+`Get-NetConnectionProfile | Set-NetConnectionProfile -NetworkCategory Private`
+
 **Suspend BitLocker**
 
 `Suspend-BitLocker -MountPoint "C:" -RebootCount 0`
