@@ -3,6 +3,10 @@
 
 `dism /online /Enable-Feature /FeatureName:TelnetClient`
 
+**Open Hosts File with Elevated Admin Privileges
+
+`powershell.exe -Command "Start-Process 'Notepad.exe' -Argument 'C:\Windows\System32\drivers\etc\hosts' -Verb RunAs"`
+
 **Change Network Connection Profile to Private**
 
 `Get-NetConnectionProfile | Set-NetConnectionProfile -NetworkCategory Private`
