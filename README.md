@@ -7,6 +7,16 @@
 
 `powershell.exe -Command "Start-Process 'Notepad.exe' -Argument 'C:\Windows\System32\drivers\etc\hosts' -Verb RunAs"`
 
+**Add Hosts Files Entry with a Batch File**
+
+Create a batch file with .bat extension similar to the below (replacing the domain names and IPs). Then run the batch file with elevated admin rights. This will append (will not replace or delete any existing entries but only adds) the entries to the hosts file.
+
+      @echo off
+      set hostspath=%windir%\System32\drivers\etc\hosts
+      echo 127.0.0.1 www.domainname.com >> %hostspath%
+      echo 127.0.0.1 www.domainname.co.uk >> %hostspath%
+      exit
+
 **Change Network Connection Profile to Private**
 
 `Get-NetConnectionProfile | Set-NetConnectionProfile -NetworkCategory Private`
