@@ -40,17 +40,17 @@ Create a batch file with .bat extension similar to the below (replacing the doma
 
 **PowerShell Comparison Operators**
 
+Return all results with an occurence of vi anywhere in the username, for example David.
+
 `Get-CsOnlineUser -Filter {UserPrincipalName -like '*vi*'} | select UserPrincipalName`
 
-Returns all results with an occurence of vi anywhere in the username, for example David.
+Only return results have an exact match.
 
 `Get-CsOnlineUser -Filter {UserPrincipalName -eq '*JoeBloggs@domain.co.uk*'} | select UserPrincipalName`
 
-Only returns results have an exact match.
+Return all result starting with vi, for example Victoria.
 
 `Get-CsOnlineUser -Filter {UserPrincipalName -like 'vi*'} | select UserPrincipalName`
-
-Returns all result starting with vi, for example Victoria.
 
 **Install Chocolatey**
 
