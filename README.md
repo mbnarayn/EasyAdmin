@@ -25,6 +25,10 @@ Create a batch file with .bat extension similar to the below (replacing the doma
 
 `Suspend-BitLocker -MountPoint "C:" -RebootCount 0`
 
+**Force Azure AD Sync**
+
+`Start-ADSyncSyncCycle -PolicyType Initial`
+
 **Install Chocolatey**
 
 `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
