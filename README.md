@@ -29,6 +29,29 @@ Create a batch file with .bat extension similar to the below (replacing the doma
 
 `Start-ADSyncSyncCycle -PolicyType Initial`
 
+**Copy Group Memberships from One Group to Another
+
+      $gsource = "Source Group Name"
+      $gtarget = "Target Group Name"
+      Get-ADGroupMember -Identity $gsource |
+      foreach {
+      Add-ADGroupMember -Identity $gtarget -Members $($_.DistinguishedName)
+      }
+
+**PowerShell Comparison Operators**
+
+`Get-CsOnlineUser -Filter {UserPrincipalName -like '*vi*'} | select UserPrincipalName`
+
+Returns all results with an occurence of vi anywhere in the username, for example David.
+
+`Get-CsOnlineUser -Filter {UserPrincipalName -eq '*JoeBloggs@domain.co.uk*'} | select UserPrincipalName`
+
+Only returns results have an exact match.
+
+`Get-CsOnlineUser -Filter {UserPrincipalName -like 'vi*'} | select UserPrincipalName`
+
+Returns all result starting with vi, for example Victoria.
+
 **Install Chocolatey**
 
 `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
