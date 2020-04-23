@@ -29,7 +29,7 @@ Create a batch file with .bat extension similar to the below (replacing the doma
 
 `Start-ADSyncSyncCycle -PolicyType Initial`
 
-**Copy Group Memberships from One Group to Another
+**Copy Group Memberships from One Group to Another**
 
       $gsource = "Source Group Name"
       $gtarget = "Target Group Name"
