@@ -52,6 +52,10 @@ Return all result starting with vi, for example Victoria.
 
 `Get-CsOnlineUser -Filter {UserPrincipalName -like 'vi*'} | select UserPrincipalName`
 
+**PowerShell Get a Count of the Results**
+
+`Get-CsOnlineUser -Filter {UserPrincipalName -like 'vi*'} | select UserPrincipalName | measure`
+
 **Install Chocolatey**
 
 `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
