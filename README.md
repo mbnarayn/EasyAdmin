@@ -120,6 +120,36 @@ This example exports the user's archive to a .pst file on the network shared fol
 
 Both the above cmdlets requires the admin to be assigned the Mailbox Import Export role, and by default, the role isn't assigned to any role groups. Also note that the -FilePath value only accepts UNC paths.
 
+
+***
+## Setting Up Exchange Email Forwarding to External Email Address Without Creating a Mail Contact
+
+By default to forward mail externally for an Exchange Mailbox User you must create a Contact. If you configure email forwarding to an external email address without creating a mail contact the forwarding will not work.
+
+To set up forwarding to an external email address without creating a contact, the Exchange Administrator will need to add a remote domain using the command below. Remote domains are SMTP domains that are external to your Microsoft Exchange organization.
+
+```
+New-RemoteDomain -Name ExternalDomain -DomainName externaldomain.com
+```
+
+Once you have added the remote domain, run the below command to check that Auto Forward is enabled.
+```
+Get-RemoteDomain ExternalDomain | Select DomainName, AutoForwardEnabled 
+```
+Now to forward email for a user to an external email address as well as deliver a copy to their primary mailbox run the command below:
+
+```
+Set-Mailbox -Identity joe.bloggs@domain.com -DeliverToMailboxAndForward $true -ForwardingSMTPAddress Joe.Bloggs@externaldomain.com
+```
+The above command also works for Shared Mailboxes.
+Email forwarding to external addresses cannot be configured via the GUI. Also it not possible to view the forwarding from the GUI when using this method.
+
+To view the forwarding SMTP address use the cmdlete below:
+
+```
+Get-Mailbox -Identity joe.bloggs@domain.com | Select Name, ForwardingSMTPAddress
+```
+
 ***
 ## Disabling AD Replication on a single Domain Controller
 
