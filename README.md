@@ -108,6 +108,17 @@ Return all result starting with vi, for example Victoria.
 
 Use this command very carefully. The /MIR switch will delete any existing files or folders in the destination directory if it does not exist at source. It will never delete from source. The command is a one way mirror from source to destination.
 
+**Exporting Contents of a Primary Mailbox or Archive to a PST File**
+
+`New-MailboxExportRequest -Mailbox JoeBloggs -FilePath "\\SERVER01\PSTFileShare\JoeBloggs_PrimaryMailbox.pst"`
+
+This example exports the user's primary mailbox to a .pst file on the network shared folder PSTFileShare on SERVER01.
+
+`New-MailboxExportRequest -Mailbox JoeBlogg -FilePath "\\SERVER01\PSTFileShare\JoeBlogg_Archive.pst" -IsArchive`
+
+This example exports the user's archive to a .pst file on the network shared folder PSTFileShare on SERVER01.
+
+This cmdlet requires the admin to be assigned the Mailbox Import Export role, and by default, the role isn't assigned to any role groups. Also note that the -FilePath value only accepts UNC paths.
 
 ***
 ## Disabling AD Replication on a single Domain Controller
