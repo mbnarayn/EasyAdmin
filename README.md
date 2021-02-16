@@ -102,6 +102,13 @@ Return all result starting with vi, for example Victoria.
 
 `Add-Computer -DomainName example.ac.uk -OUPath "OU=Servers,OU=Azure,OU=Prod,DC=EXAMPLE,DC=AC,DC=UK"`
 
+**Use Robocopy to Copy All Files, Folders and Permissions from Source to Destination**
+
+`robocopy "C:\sourcefolder" "C:\destinationfolder" /MIR > "copylog.txt"`
+
+Use this command very carefully. The /MIR switch will delete any existing files or folders in the destination directory if it does not exist at source. It will never delete from source. The command is a one way mirror from source to destination.
+
+
 ***
 ## Disabling AD Replication on a single Domain Controller
 
