@@ -118,7 +118,7 @@ This example exports the user's primary mailbox to a .pst file on the network sh
 
 This example exports the user's archive to a .pst file on the network shared folder PSTFileShare on SERVER01.
 
-This cmdlet requires the admin to be assigned the Mailbox Import Export role, and by default, the role isn't assigned to any role groups. Also note that the -FilePath value only accepts UNC paths.
+Both the above cmdlets requires the admin to be assigned the Mailbox Import Export role, and by default, the role isn't assigned to any role groups. Also note that the -FilePath value only accepts UNC paths.
 
 ***
 ## Disabling AD Replication on a single Domain Controller
