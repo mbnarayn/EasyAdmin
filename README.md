@@ -114,7 +114,7 @@ Use this command very carefully. The /MIR switch will delete any existing files 
 
 This example exports the user's primary mailbox to a .pst file on the network shared folder PSTFileShare on SERVER01.
 
-`New-MailboxExportRequest -Mailbox JoeBlogg -FilePath "\\SERVER01\PSTFileShare\JoeBlogg_Archive.pst" -IsArchive`
+`New-MailboxExportRequest -Mailbox JoeBloggs -FilePath "\\SERVER01\PSTFileShare\JoeBloggs_Archive.pst" -IsArchive`
 
 This example exports the user's archive to a .pst file on the network shared folder PSTFileShare on SERVER01.
 
