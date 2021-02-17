@@ -108,6 +108,8 @@ Return all result starting with vi, for example Victoria.
 
 The lastLogonTimestamp is replicated to all Domain Controllers in your AD Forest so it is better to use this than the lastLogon attribute which is only updated on the Domain Controller where login has actually happened and it wouldn´t be replicated. LastLogonTimestamp is replicated on all DCs every 14 days - random of 5%, with an interactive logon, network and simple bind logons. This value should be used to find stale accounts.
 
+The default Search Scope is -SearchScope Subtree, but it does not appear to find computer accounts beyond the 1st and 2nd level OUs, so you may have to run this command specifically at sub level OUs to find computer accounts nested deep in multiple levels.
+
 **Use Robocopy to Copy All Files, Folders and Permissions from Source to Destination**
 
 `robocopy "C:\sourcefolder" "C:\destinationfolder" /MIR > "copylog.txt"`
