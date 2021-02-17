@@ -102,6 +102,12 @@ Return all result starting with vi, for example Victoria.
 
 `Add-Computer -DomainName example.ac.uk -OUPath "OU=Servers,OU=Azure,OU=Prod,DC=EXAMPLE,DC=AC,DC=UK"`
 
+**Get Last Logon Time Time Stamp for AD computer**
+
+`Get-ADUser -Filter * -SearchBase "ou=users,dc=contoso,dc=local" -ResultPageSize 0 -Prop CN,lastLogonTimestamp | Select CN,@{n="lastLogonDate";e={[datetime]::FromFileTime($_.lastLogonTimestamp)}} | Export-CSV -NoType last.csv`
+
+The lastLogonTimestamp is replicated to all Domain Controllers in your AD Forest so it is better to use this than the lastLogon attribute which is only updated on the Domain Controller where login has actually happened and it wouldn´t be replicated. LastLogonTimestamp is replicated on all DCs every 14 days - random of 5%, with an interactive logon, network and simple bind logons. This value should be used to find stale accounts.
+
 **Use Robocopy to Copy All Files, Folders and Permissions from Source to Destination**
 
 `robocopy "C:\sourcefolder" "C:\destinationfolder" /MIR > "copylog.txt"`
