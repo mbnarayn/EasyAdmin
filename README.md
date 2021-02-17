@@ -109,7 +109,7 @@ Return all result starting with vi, for example Victoria.
 Use this command very carefully. The /MIR switch will delete any existing files or folders in the destination directory if it does not exist at source. It will never delete from source. The command is a one way mirror from source to destination.
 
 ***
-## Exporting Contents of a Primary Mailbox or Archive to a PST File
+## Exporting Contents of an Exchange Primary Mailbox or Archive to a PST File
 
 **Exports the user's Primary Mailbox to a PST File**
 
