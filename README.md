@@ -108,18 +108,38 @@ Return all result starting with vi, for example Victoria.
 
 Use this command very carefully. The /MIR switch will delete any existing files or folders in the destination directory if it does not exist at source. It will never delete from source. The command is a one way mirror from source to destination.
 
-**Exporting Contents of a Primary Mailbox or Archive to a PST File**
+***
+## Exporting Contents of a Primary Mailbox or Archive to a PST File
+
+**Exports the user's Primary Mailbox to a PST File**
 
 `New-MailboxExportRequest -Mailbox JoeBloggs -FilePath "\\SERVER01\PSTFileShare\JoeBloggs_PrimaryMailbox.pst"`
 
-This example exports the user's primary mailbox to a .pst file on the network shared folder PSTFileShare on SERVER01.
+**Exports the user's Archive Mailbox to a PST File**
 
 `New-MailboxExportRequest -Mailbox JoeBloggs -FilePath "\\SERVER01\PSTFileShare\JoeBloggs_Archive.pst" -IsArchive`
 
-This example exports the user's archive to a .pst file on the network shared folder PSTFileShare on SERVER01.
+These cmdlets require the admin to be assigned the Mailbox Import Export role, and by default, the role isn't assigned to any role groups. Also note that the -FilePath value only accepts UNC paths.
 
-Both the above cmdlets requires the admin to be assigned the Mailbox Import Export role, and by default, the role isn't assigned to any role groups. Also note that the -FilePath value only accepts UNC paths.
+**Export Contents While Ignoring Corrupted or Missing Items**
 
+`New-MailboxExportRequest -Mailbox JoeBloggs -BadItemLimit Unlimited -FilePath "\\SERVER01\PSTFileShare\JoeBloggs_PrimaryMailbox.pst"`
+
+**View Export Progress/Status**
+
+`Get-MailboxExportRequest | Get-MailboxExportRequestStatistics`
+
+**View Details of a Failed Export Request**
+
+`Get-MailboxExportRequest -Status Failed | Get-MailboxExportRequestStatistics -IncludeReport | Format-List > C:\Temp\log.txt`
+
+**Clear Completed Export Requests**
+
+`Get-MailboxExportRequest -Status Completed | Remove-MailboxExportRequest`
+
+**Clear Failed Export Requests**
+
+`Get-MailboxExportRequest -Status Failed | Remove-MailboxExportRequest`
 
 ***
 ## Setting Up Exchange Email Forwarding to External Email Address Without Creating a Mail Contact
