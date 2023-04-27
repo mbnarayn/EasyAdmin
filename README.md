@@ -1,5 +1,9 @@
 # EasyAdmin
 
+**Get Public IP via Curl**
+
+`curl icanhazip.com`
+
 **Delete all Documents in a CosmosDB Collection**
 
 `db.collectioname.deleteMany({ })`
