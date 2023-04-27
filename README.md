@@ -1,4 +1,9 @@
 # EasyAdmin
+
+**Delete all Documents in a CosmosDB Collection**
+
+`db.collectioname.deleteMany({ })`
+
 **Install Telnet**
 
 `dism /online /Enable-Feature /FeatureName:TelnetClient`
